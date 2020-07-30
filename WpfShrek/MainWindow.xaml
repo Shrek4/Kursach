@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfShrek.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfShrek"
+        mc:Ignorable="d"
+        Title="За вѣру, Царя и Отечество" Height="501.254" Width="803.678">
+    <Grid Margin="10,0,2,-21">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="191*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="tinput" FontSize="15" HorizontalAlignment="Left" Height="140" Margin="10,36,0,0" TextWrapping="Wrap" Text="Входное сообщение" VerticalAlignment="Top" Width="589" Grid.Column="1" AcceptsReturn="True"/>
+        <TextBox x:Name="toutput" FontSize="15" HorizontalAlignment="Left" Height="142" Margin="10,235,0,0" TextWrapping="Wrap" Text="Выходное сообщение" VerticalAlignment="Top" Width="589" Grid.Column="1" AcceptsReturn="True"/>
+        <TextBox x:Name="tkey" FontSize="15" HorizontalAlignment="Left" Height="23" Margin="201,421,0,0" TextWrapping="Wrap" Text="Ключ" VerticalAlignment="Top" Width="206" Grid.Column="1"/>
+        <Button x:Name="bencrypt" FontSize="15" Content="Зашифровать" HorizontalAlignment="Left" Margin="10,413,0,0" VerticalAlignment="Top" Width="135" Height="38" Grid.Column="1" Click="bencrypt_Click"/>
+        <Button x:Name="bdecrypt" FontSize="15" Content="Расшифровать" HorizontalAlignment="Left" Margin="464,413,0,0" VerticalAlignment="Top" Width="135" Height="38" Grid.Column="1" Click="bdecrypt_Click"/>
+        <Button x:Name="bload" FontSize="15" Content="Загрузить" HorizontalAlignment="Left" Margin="604,84,0,0" VerticalAlignment="Top" Width="135" Height="38" Grid.Column="1" Click="bload_Click"/>
+        <Button x:Name="bsave" FontSize="15" Content="Сохранить" HorizontalAlignment="Left" Margin="604,289,0,0" VerticalAlignment="Top" Width="135" Height="38" Grid.Column="1" Click="bsave_Click"/>
+
+    </Grid>
+</Window>
