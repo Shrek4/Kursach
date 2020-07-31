@@ -22,17 +22,19 @@ namespace WpfShrek.some_support
             if (result == true)
             {
                 fileName = dlg.FileName;
+
+                if (fileName.Split('.').Last() == "txt") return File.ReadAllText(fileName);
+
+                Application app = new Application();
+                Document doc = app.Documents.Open(fileName);
+
+                //Get all words
+                string allWords = doc.Content.Text;
+                doc.Close();
+                app.Quit();
+                return allWords;
             };
-            if(fileName.Split('.').Last()=="txt") return File.ReadAllText(fileName);
-
-            Application app = new Application();
-            Document doc = app.Documents.Open(fileName);
-
-            //Get all words
-            string allWords = doc.Content.Text;
-            doc.Close();
-            app.Quit();
-            return allWords;
+            return "Входное сообщение";
         }
 
         public static void SaveText(string text)
