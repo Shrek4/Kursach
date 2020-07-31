@@ -10,7 +10,7 @@ using Application = Microsoft.Office.Interop.Word.Application;
 
 namespace WpfShrek.some_support
 {
-    class Files
+    public class Files
     {
 
         public static string LoadText()
@@ -81,6 +81,53 @@ namespace WpfShrek.some_support
             {
                 MessageBox.Show(ex.Message, "Oh shit, I'm sorry");
             }
+        }
+        
+
+        public static string ParseFromDirectory(string directory)
+        {
+            string fileName = directory;
+
+                if (fileName.Split('.').Last() == "txt") return File.ReadAllText(fileName);
+
+                Application app = new Application();
+                Document doc = app.Documents.Open(fileName);
+
+                //Get all words
+                string allWords = doc.Content.Text;
+                doc.Close();
+                app.Quit();
+                return allWords;
+        }
+
+        public static void SaveToDirectory(string text, string directory)
+        {
+                //Create an instance for word app  
+                Microsoft.Office.Interop.Word.Application winword = new Microsoft.Office.Interop.Word.Application();
+
+                //Set animation status for word application  
+                winword.ShowAnimation = false;
+
+                //Set status for word application is to be visible or not.  
+                winword.Visible = false;
+
+                //Create a missing variable for missing value  
+                object missing = System.Reflection.Missing.Value;
+
+                //Create a new document  
+                Microsoft.Office.Interop.Word.Document document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
+
+                //adding text to document  
+                document.Content.SetRange(0, 0);
+                document.Content.Text = text;
+
+                object fileName = directory;
+
+                document.SaveAs2(ref fileName);
+                document.Close(ref missing, ref missing, ref missing);
+                document = null;
+                winword.Quit(ref missing, ref missing, ref missing);
+                winword = null;
         }
     }
 }
