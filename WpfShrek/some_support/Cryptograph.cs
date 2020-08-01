@@ -28,7 +28,7 @@ namespace WpfShrek.some_support
                 }
                 else if (alph2.IndexOf(symbol) != -1)
                 {
-                    int c = (alph2.IndexOf(symbol) + alph2.IndexOf(key[key_index])) % alph2.Length;
+                    int c = (alph2.IndexOf(symbol) + alph.IndexOf(key[key_index])) % alph2.Length;
                     result += alph2[c];
                     key_index++;
                     if (key_index == key.Length) key_index = 0;
@@ -61,7 +61,7 @@ namespace WpfShrek.some_support
                 }
                 else if (alph2.IndexOf(symbol) != -1)
                 {
-                    int p = (alph2.IndexOf(symbol) + alph2.Length - alph2.IndexOf(key[key_index])) % alph2.Length;
+                    int p = (alph2.IndexOf(symbol) + alph2.Length - alph.IndexOf(key[key_index])) % alph2.Length;
                     result += alph2[p];
                     key_index++;
                     if (key_index == key.Length) key_index = 0;
